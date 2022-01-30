@@ -1,0 +1,24 @@
+## IN SERVER CONSOLE ##
+
+# start virtual environment
+pipenv shell
+
+# make script executable
+chmod u+x bootstrap.sh
+
+# execute script in the background
+./bootstrap.sh &
+
+
+
+## IN INTERACTION CONSOLE ##
+
+# create a new textpost
+curl -X POST -H 'Content-Type: application/json' -d '{
+  "title": "A New Test Textpost",
+  "description": "UBC redditor complains about zoom classes."
+}' http://localhost:5000/textposts
+
+
+# retrieve textposts
+curl http://localhost:5000/textposts

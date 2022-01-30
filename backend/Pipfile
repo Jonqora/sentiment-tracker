@@ -6,8 +6,10 @@ name = "pypi"
 [packages]
 sqlalchemy = "*"
 psycopg2-binary = "*"
+flask = "*"
+marshmallow = "*"
+
+[dev-packages]
 
 [requires]
 python_version = "3.7"
-
-[dev-packages]
