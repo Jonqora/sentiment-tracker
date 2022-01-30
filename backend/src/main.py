@@ -3,6 +3,8 @@
 # Boilerplate code from tutorial:
 # https://auth0.com/blog/using-python-flask-and-angular-to-build-modern-apps-part-1/
 
+from flask_cors import CORS
+
 from flask import Flask, jsonify, request
 
 from .entities.entity import Session, engine, Base
@@ -10,6 +12,7 @@ from .entities.textpost import TextPost, TextPostSchema
 
 # creating the Flask application
 app = Flask(__name__)
+CORS(app)
 
 # if needed, generate database schema
 Base.metadata.create_all(engine)
