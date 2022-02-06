@@ -3,9 +3,10 @@
 # Boilerplate code from tutorial:
 # https://auth0.com/blog/using-python-flask-and-angular-to-build-modern-apps-part-1/
 
-from flask_cors import CORS
 
+# imports
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 from .entities.entity import Session, engine, Base
 from .entities.textpost import TextPost, TextPostSchema
@@ -16,6 +17,14 @@ CORS(app)
 
 # if needed, generate database schema
 Base.metadata.create_all(engine)
+
+
+
+
+
+@app.route('/ping')
+def ping():
+    return {"ping": "PONG! Hello from Flask!"}
 
 
 @app.route('/textposts')
@@ -51,6 +60,7 @@ def add_textpost():
     new_textpost = TextPostSchema().dump(post)
     session.close()
     return jsonify(new_textpost), 201
+
 
 
 # TEST POST for database connection
